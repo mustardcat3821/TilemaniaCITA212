@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] Vector2 deathKick = new Vector2(10f, 20f);
 
     bool isAlive = true;
 
@@ -103,8 +104,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Hazard"))
         {
             isAlive = false;
-            print("Player has taken damage!");
-            // Handle player death logic here
+            myAnimator.SetTrigger("Dying");
+            myRigidBody.linearVelocity = deathKick;
         }
 
     }

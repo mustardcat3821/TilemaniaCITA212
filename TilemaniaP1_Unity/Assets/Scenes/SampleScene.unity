@@ -51138,6 +51138,8 @@ MonoBehaviour:
     HashOfParent: 756556552
   - Hash: -725336713
     HashOfParent: 756556552
+  - Hash: -1752896643
+    HashOfParent: 756556552
   m_LegacyLookAt: {fileID: 0}
   m_LegacyFollow: {fileID: 0}
 --- !u!4 &1622417956
@@ -52416,6 +52418,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2029223571608448721, guid: ff33d2e9537f887428d9034f77b08042, type: 3}
+      propertyPath: deathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6943f8e27d46cb64f88632e5e14fd4f1, type: 3}
     - target: {fileID: 7186185005983206809, guid: ff33d2e9537f887428d9034f77b08042, type: 3}
       propertyPath: m_Name
       value: Player

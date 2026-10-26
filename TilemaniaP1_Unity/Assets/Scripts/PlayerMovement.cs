@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] AudioClip deathSFX;
     [SerializeField] Vector2 deathKick = new Vector2(10f, 20f);
 
     bool isAlive = true;
@@ -101,12 +102,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Hazard"))
+        if (collision.collider.CompareTag("Enemy") ||
+            collision.collider.CompareTag("Hazard"))
         {
             isAlive = false;
             myAnimator.SetTrigger("Dying");
+
+            AudioSource.PlayClipAtPoint(deathSFX, myRigidBody.transform.position);
+
             myRigidBody.linearVelocity = deathKick;
         }
-
     }
 }

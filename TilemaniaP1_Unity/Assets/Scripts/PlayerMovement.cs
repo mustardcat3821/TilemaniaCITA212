@@ -84,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
+            myAnimator.SetBool("isClimbing", false);
             myRigidBody.gravityScale = gravityScaleAtStart;
             return;
         }
@@ -91,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
         myRigidBody.gravityScale = 0f;
         Vector2 climbVelocity = new Vector2(myRigidBody.linearVelocity.x, moveInput.y * climbSpeed);
         myRigidBody.linearVelocity = climbVelocity;
+
+        bool hasVerticalSpeed = Mathf.Abs(myRigidBody.linearVelocity.y) > Mathf.Epsilon;
+
+        myAnimator.SetBool("isClimbing", hasVerticalSpeed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

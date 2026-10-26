@@ -16,7 +16,7 @@ TagManager:
   - Ground
   - Enemy
   - Hazard
-  - 
+  - Climbing
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 1786271843
+    locked: 0
+  - name: Climbing
+    uniqueID: 3725937719
     locked: 0
   - name: Player
     uniqueID: 690538195

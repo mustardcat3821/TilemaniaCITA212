@@ -8,13 +8,14 @@ public class PlayerMovement : MonoBehaviour
     bool isAlive = true;
 
     Vector2 moveInput;
-
     Rigidbody2D myRigidBody;
+    Animator myAnimator;
     BoxCollider2D feetCollider;
 
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
         feetCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -51,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, myRigidBody.linearVelocity.y);
         myRigidBody.linearVelocity = playerVelocity;
+
+        bool hasHorizontalSpeed = Mathf.Abs(myRigidBody.linearVelocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("isRunning", hasHorizontalSpeed);
     }
 
     void Jump()

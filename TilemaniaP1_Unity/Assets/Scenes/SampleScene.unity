@@ -38575,6 +38575,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5141414015949982435, guid: 20ecbaf5ebe90b547be7553944d30e57, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5594055555383731991, guid: 20ecbaf5ebe90b547be7553944d30e57, type: 3}
       propertyPath: moveSpeed
       value: 5
@@ -38803,7 +38807,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000047d6d0946358786a45df1b33d3c62829374c15de
+  m_ApplyToSortingLayers: 0000000047d6d0946358786a45df1b33d3c62829374c15debf7583e371fff5a2
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -52418,10 +52422,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2029223571608448721, guid: ff33d2e9537f887428d9034f77b08042, type: 3}
-      propertyPath: deathSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 6943f8e27d46cb64f88632e5e14fd4f1, type: 3}
     - target: {fileID: 7186185005983206809, guid: ff33d2e9537f887428d9034f77b08042, type: 3}
       propertyPath: m_Name
       value: Player

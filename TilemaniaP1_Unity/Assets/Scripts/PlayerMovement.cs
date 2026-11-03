@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] AudioClip deathSFX;
-    [SerializeField] Vector2 deathKick = new Vector2(10f, 20f);
+    [SerializeField] Vector2 deathKick = new Vector2(10f, 5f);
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
 
     bool isAlive = true;
 
@@ -41,12 +43,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if(!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
         }
 
-        if(!isAlive)
+        if (!isAlive)
         {
             return;
         }
@@ -57,8 +59,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnAttack(InputValue value)
+    {
+        if (!isAlive) { return; }
+        if (!value.isPressed) { return; }
+
+        Instantiate(bullet, gun.position, transform.rotation);
+    }
+
     void Run()
     {
+        if (!isAlive) { return; }
+
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, myRigidBody.linearVelocity.y);
         myRigidBody.linearVelocity = playerVelocity;
 
@@ -68,6 +80,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        if (!isAlive) { return; }
+
         Vector2 jumpVelocity = new Vector2(myRigidBody.linearVelocity.x, jumpSpeed);
         myRigidBody.linearVelocity = jumpVelocity;
     }
@@ -78,12 +92,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (hasHorizontalSpeed)
         {
-            transform.localScale = new Vector2 (Mathf.Sign(myRigidBody.linearVelocity.x), 1f);
+            transform.localScale = new Vector2(Mathf.Sign(myRigidBody.linearVelocity.x), 1f);
         }
     }
 
     void ClimbLadder()
     {
+        if (!isAlive) { return; }
+
         if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             myAnimator.SetBool("isClimbing", false);
@@ -111,6 +127,8 @@ public class PlayerMovement : MonoBehaviour
             AudioSource.PlayClipAtPoint(deathSFX, myRigidBody.transform.position);
 
             myRigidBody.linearVelocity = deathKick;
+            myCapsuleCollider.enabled = false;
+            feetCollider.enabled = false;
         }
     }
 }

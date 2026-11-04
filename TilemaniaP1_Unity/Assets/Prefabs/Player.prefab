@@ -232,7 +232,9 @@ MonoBehaviour:
   jumpSpeed: 5
   climbSpeed: 5
   deathSFX: {fileID: 8300000, guid: 6943f8e27d46cb64f88632e5e14fd4f1, type: 3}
-  deathKick: {x: 10, y: 5}
+  jumpSFX: {fileID: 8300000, guid: 11ab05db5dacdfe41827b1a64176a735, type: 3}
+  shootSFX: {fileID: 8300000, guid: b9797627f75a94b4187fce9026b1b586, type: 3}
+  deathKick: {x: 5, y: 10}
   bullet: {fileID: 18360845672913937, guid: 5c2318c9dd1b8f140a578edbec92f888, type: 3}
   gun: {fileID: 7377438778733952113}
 --- !u!61 &2690311892742503985

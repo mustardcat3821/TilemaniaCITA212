@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] AudioClip deathSFX;
+    [SerializeField] AudioClip jumpSFX;
+    [SerializeField] AudioClip shootSFX;
     [SerializeField] Vector2 deathKick = new Vector2(10f, 5f);
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (value.isPressed)
         {
+            AudioSource.PlayClipAtPoint(jumpSFX, myCapsuleCollider.transform.position);
             Jump();
         }
     }
@@ -64,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isAlive) { return; }
         if (!value.isPressed) { return; }
 
+        AudioSource.PlayClipAtPoint(shootSFX, myCapsuleCollider.transform.position);
         Instantiate(bullet, gun.position, transform.rotation);
     }
 

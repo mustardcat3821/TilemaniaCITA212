@@ -51897,13 +51897,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2029223571608448721, guid: ff33d2e9537f887428d9034f77b08042, type: 3}
-      propertyPath: deathKick.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2029223571608448721, guid: ff33d2e9537f887428d9034f77b08042, type: 3}
-      propertyPath: deathKick.y
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: jumpSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 11ab05db5dacdfe41827b1a64176a735, type: 3}
     - target: {fileID: 7186185005983206809, guid: ff33d2e9537f887428d9034f77b08042, type: 3}
       propertyPath: m_Name
       value: Player

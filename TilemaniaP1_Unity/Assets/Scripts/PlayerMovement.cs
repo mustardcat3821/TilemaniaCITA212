@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             isAlive = false;
             myAnimator.SetTrigger("Dying");
 
-            AudioSource.PlayClipAtPoint(deathSFX, myRigidBody.transform.position);
+            AudioSource.PlayClipAtPoint(deathSFX, myCapsuleCollider.transform.position);
 
             myRigidBody.linearVelocity = deathKick;
             myCapsuleCollider.enabled = false;

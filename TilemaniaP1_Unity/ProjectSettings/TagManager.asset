@@ -19,7 +19,7 @@ TagManager:
   - Climbing
   - Bouncing
   - Bullets
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -54,6 +54,9 @@ TagManager:
     locked: 0
   - name: Climbing
     uniqueID: 3725937719
+    locked: 0
+  - name: Interactables
+    uniqueID: 2192850625
     locked: 0
   - name: Player
     uniqueID: 690538195
